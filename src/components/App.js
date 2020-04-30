@@ -1,5 +1,5 @@
 import React from 'react';
-import AppHeader from './AppHeader';
+import AppHeader from './AppHeader/AppHeader';
 
 const App = () => {
     return (
