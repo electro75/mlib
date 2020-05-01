@@ -1,10 +1,20 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {getItems} from '../../actions';
 
 class DisplayItems extends React.Component {
 
-    render() {        
+    componentDidMount() {                
+        this.props.getItems(this.props.item)
+    }
+
+    render() {                
         return <div>{this.props.item}</div>
     }
 }
 
-export default DisplayItems;
+const mapStateToProps = ({displayItems}) => {
+    return displayItems
+}
+
+export default connect(mapStateToProps, {getItems})(DisplayItems);

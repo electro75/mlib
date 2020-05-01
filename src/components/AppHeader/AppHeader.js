@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 class AppHeader extends React.Component {
 
-    state = { activeItem: 'movies' }
+    state = { activeItem: '' }
 
     handleItemClick = (e, {name, linkto}) => {
         this.setState({activeItem : name})
