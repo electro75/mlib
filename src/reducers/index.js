@@ -2,8 +2,7 @@ import { combineReducers } from 'redux'
 
 const displayItemReducer = (state=[], action) => {
     switch(action.type) {
-        case 'FETCH_DISPLAY' : 
-            console.log(action);
+        case 'FETCH_DISPLAY' :             
             return action.payload
         
         default : 

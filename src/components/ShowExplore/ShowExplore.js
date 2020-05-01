@@ -13,7 +13,7 @@ const ShowExplore = () => {
                         sidebar
                     </Segment>
                 </Sidebar>            
-                <Sidebar.Pusher>
+                <Sidebar.Pusher className="explore-content" >
                     <Segment basic padded>                                                                    
                             <Route path='/explore-movies' exact render={() => <DisplayItems item='movie' /> } />
                             <Route path='/explore-shows' exact render={() => <DisplayItems item='tv' /> } />                                                
