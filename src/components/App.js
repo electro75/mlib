@@ -1,15 +1,18 @@
 import React from 'react';
-
+import { BrowserRouter } from 'react-router-dom'
 import AppHeader from './AppHeader/AppHeader';
-import AppBody from './AppBody/AppBody';
+
+import './App.css';
+import ShowExplore from './ShowExplore/ShowExplore';
 
 const App = () => {
     return (
-        <div>
+        <BrowserRouter>
+            <div className='app-container' >
             <AppHeader />
-            <AppBody />
-        </div>
-        
+            <ShowExplore />
+            </div>
+        </BrowserRouter>
     )
 }
 
