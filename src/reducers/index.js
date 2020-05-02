@@ -20,7 +20,19 @@ const configReducer = (state = {}, action) => {
     }
 }
 
+const genreReducer = (state = [], action) => {
+    switch(action.type) {
+        case 'FETCH_GENRES' : 
+            return action.payload.genres
+        
+        default : 
+            return state
+    }
+}
+
+
 export default combineReducers({
     displayItems : displayItemReducer,
-    config : configReducer
+    config : configReducer,
+    genres  : genreReducer
 })

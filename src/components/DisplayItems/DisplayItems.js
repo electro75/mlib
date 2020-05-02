@@ -46,7 +46,6 @@ class DisplayItems extends React.Component {
 
     render() {
         // console.log(this.props)
-
         if(!this.props.displayItems.results) {
             return (
                 <div className="ui five cards">
@@ -54,19 +53,20 @@ class DisplayItems extends React.Component {
                 </div>
             )
         } else {
+            console.log(this.props.item);
             return (
-                <div className='ui five cards' >
-                    {this.renderItemList()}
-                </div>
+                <div>                    
+                    <div className='ui five cards' >
+                        {this.renderItemList()}
+                    </div>
+                </div>                
             )
-        }
-
-        
+        }        
     }
 }
 
 const mapStateToProps = (state) => {
-    return state
+    return {displayItems: state.displayItems}
 }
 
 export default connect(mapStateToProps, {getItems})(DisplayItems);

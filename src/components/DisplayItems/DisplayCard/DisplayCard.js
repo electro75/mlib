@@ -28,15 +28,14 @@ class DisplayCard extends React.Component {
     }
 
     getDate() {
-        let date = this.props.item.release_date ? new Date(this.props.release_date).getFullYear() : 
+        let date = this.props.item.release_date ? new Date(this.props.item.release_date).getFullYear() : 
                     new Date(this.props.item.first_air_date).getFullYear();
 
         return date;
     }
 
     render() {
-        const {item} = this.props;        
-        console.log(item);
+        const {item} = this.props;
         return (
             <div className="ui card" style={{cursor : 'pointer'}} >
                 <div className="image">
