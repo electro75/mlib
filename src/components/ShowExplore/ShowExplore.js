@@ -1,6 +1,6 @@
 import React from 'react';
 import './ShowExplore.css'
-import { Sidebar, Segment } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 import { Route } from 'react-router-dom';
 import DisplayItems from '../DisplayItems/DisplayItems';
 

@@ -28,14 +28,14 @@ class AppHeader extends React.Component {
                                 <span style={{color:'#16AB39'}} > MTVLIB </span> 
                         </Menu.Item>                            
                         <Menu.Item
-                            name='movies'
+                            name='movies'                            
                             linkto='explore-movies'
                             active={activeItem === 'movies'}
                             onClick={this.handleItemClick}
                             color='green'                            
                         />
                         <Menu.Item                                    
-                            name='TV Shows'
+                            name='TV Shows'                            
                             linkto='explore-shows'
                             active={activeItem === 'TV Shows'}
                             onClick={this.handleItemClick}
