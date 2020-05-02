@@ -21,7 +21,7 @@ class AppHeader extends React.Component {
                     size='massive'                         
                     pointing 
                     secondary 
-                    color='green'                       
+                    color='green'                                                                              
                     >                           
                         <Menu.Item header className='__menu-header'>                                
                             <Icon name='monero' color='green' size='large' />

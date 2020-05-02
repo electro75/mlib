@@ -17,7 +17,7 @@ class DisplayItems extends React.Component {
 
         return loadArr.map(n => {
             return (
-                <div key={n} className="five wide column">
+                <div key={n} className="four wide column">
                     <div className="ui card">
                         <div className="image">
                             <div className="ui placeholder">
