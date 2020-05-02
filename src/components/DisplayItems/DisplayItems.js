@@ -1,13 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {getItems} from '../../actions';
 import DisplayCard from './DisplayCard/DisplayCard';
 
 class DisplayItems extends React.Component {
 
-    componentDidMount() {        
-        this.props.getItems(this.props.item)
-    }
 
     renderItemList() {
         return this.props.displayItems.results.map(item => {
@@ -52,8 +47,7 @@ class DisplayItems extends React.Component {
                        {this.renderLoader()}                                    
                 </div>
             )
-        } else {
-            console.log(this.props.item);
+        } else {            
             return (
                 <div>                    
                     <div className='ui five cards' >
@@ -65,8 +59,4 @@ class DisplayItems extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {displayItems: state.displayItems}
-}
-
-export default connect(mapStateToProps, {getItems})(DisplayItems);
+export default DisplayItems;

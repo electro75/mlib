@@ -1,8 +1,18 @@
 import { combineReducers } from 'redux'
 
-const displayItemReducer = (state={}, action) => {
+const moviesReducer = (state={}, action) => {
     switch(action.type) {
-        case 'FETCH_DISPLAY' :                    
+        case 'FETCH_MOVIES' :                    
+            return {...action.payload}
+        
+        default : 
+            return state
+    }
+}
+
+const tvShowReducer = (state = {}, action) => {
+    switch(action.type) {
+        case 'FETCH_TVSHOWS' :
             return {...action.payload}
         
         default : 
@@ -32,7 +42,8 @@ const genreReducer = (state = [], action) => {
 
 
 export default combineReducers({
-    displayItems : displayItemReducer,
+    movieDiscover : moviesReducer,
+    tvShowDiscover : tvShowReducer,
     config : configReducer,
     genres  : genreReducer
 })

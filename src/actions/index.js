@@ -19,14 +19,16 @@ const _fetchGenres = async (item, dispatch) => {
     dispatch({type : 'FETCH_GENRES', payload : response.data})
 }
 
-const _fetchItem = async (item, dispatch) => {
+const _fetchItem = _.memoize(async (item, dispatch) => {
     const response = await tmdb.get(`/discover/${item}`, {params});
 
-    dispatch({type: 'FETCH_DISPLAY', payload: response.data})
-}
+    let type = item === 'movie' ? 'FETCH_MOVIES' : 'FETCH_TVSHOWS';
 
-const _fetchConfig = async (dispatch) => {
+    dispatch({type, payload: response.data})
+})
+
+const _fetchConfig = _.memoize(async (dispatch) => {
     const response = await tmdb.get('/configuration', {params});
 
     dispatch({type: 'FETCH_CONFIG', payload: response.data})
-}
+})
