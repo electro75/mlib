@@ -6,4 +6,16 @@
 .explore-content {
     overflow: auto;
     margin-top: none;
+    position: relative;
+}
+
+.discover-display {
+    z-index: 1;
+}
+
+.filter-btn {
+    position: fixed;
+    bottom: 50px;
+    right: 100px;
+    z-index: 2;        
 }

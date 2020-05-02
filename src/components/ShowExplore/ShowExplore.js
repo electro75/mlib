@@ -11,8 +11,16 @@ class ShowExplore extends React.Component {
     render() {
         return (
             <Segment basic padded className="explore-content" >
-                <Route path='/explore-movies' exact component={MovieExplore} />
-                <Route path='/explore-shows' exact component={TvExplore} />
+                <div className="discover-display" >
+                    <Route path='/explore-movies' exact component={MovieExplore} />
+                    <Route path='/explore-shows' exact component={TvExplore} />    
+                </div>
+                <div className="filter-btn" >
+                    <button className="ui circular raised green large button">
+                        <i className="filter icon"></i>
+                        Filter
+                    </button>
+                </div>
             </Segment> 
         )
     }

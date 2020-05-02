@@ -3,7 +3,6 @@ import DisplayItems from '../../DisplayItems/DisplayItems';
 import { connect } from 'react-redux';
 
 import {getItems} from '../../../actions';
-import '../ShowExplore.css'
 
 class MovieExplore extends React.Component {
 
