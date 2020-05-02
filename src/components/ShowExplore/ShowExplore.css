@@ -3,6 +3,7 @@
     margin:0px;
 }
 
-/* .explore-content {
-    width: 80%;
-} */
+.explore-content {
+    overflow: auto;
+    margin-top: none;
+}

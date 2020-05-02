@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {getItems} from '../../actions';
+import DisplayCard from './DisplayCard/DisplayCard';
 
 class DisplayItems extends React.Component {
 
@@ -8,8 +9,12 @@ class DisplayItems extends React.Component {
         this.props.getItems(this.props.item)
     }
 
-    renderList() {
-
+    renderItemList() {
+        return this.props.displayItems.results.map(item => {
+            return (
+                <DisplayCard  key={item.id} item={item} />
+            )
+        })
     }
 
     renderLoader() {
@@ -44,19 +49,19 @@ class DisplayItems extends React.Component {
     render() {
         console.log(this.props)
 
-        // if(!this.props.displayItems) {
+        if(!this.props.displayItems.results) {
             return (
                 <div className="ui grid">
                        {this.renderLoader()}                                    
                 </div>
             )
-        // } else {
-        //     return (
-        //         <div className='ui grid' >
-        //             {this.props.item} list
-        //         </div>
-        //     )
-        // }
+        } else {
+            return (
+                <div className='ui five cards' >
+                    {this.renderItemList()}
+                </div>
+            )
+        }
 
         
     }

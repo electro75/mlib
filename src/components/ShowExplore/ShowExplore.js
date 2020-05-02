@@ -26,7 +26,7 @@ class ShowExplore extends React.Component {
         // )
 
         return (
-            <Segment basic padded>
+            <Segment basic padded className="explore-content" >
                 <Route path='/explore-movies' exact render={() => <DisplayItems item='movie' /> } />
                 <Route path='/explore-shows' exact render={() => <DisplayItems item='tv' /> } />
             </Segment> 
