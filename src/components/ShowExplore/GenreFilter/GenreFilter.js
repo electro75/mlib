@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react';
 import {connect} from 'react-redux';
-import { getItemGenres, getItems } from '../../../actions';
+import { getItemGenres, setSingleGenre } from '../../../actions';
 
 class GenreFilter extends React.Component {
 
@@ -27,7 +27,7 @@ class GenreFilter extends React.Component {
     }
 
     getGenreItems(genre) {
-        this.props.getItems(this.props.item, genre.id)
+        this.props.setSingleGenre(this.props.item, `${genre.id}`)
         this.setState({modalOpen: false})
     }
 
@@ -49,15 +49,6 @@ class GenreFilter extends React.Component {
             )
         })
     }
-
-    onOpenModal() {                
-        // if(this.props.item !== this.state.item) {            
-        //     this.props.getItemGenres(this.props.item);
-        //     this.setState({
-        //         item : this.props.item
-        //     })
-        // }
-    }    
     
     render() {        
         return (
@@ -65,8 +56,7 @@ class GenreFilter extends React.Component {
                 trigger={this.getTrigger()} 
                 basic 
                 size='large'                
-                open = {this.state.modalOpen}
-                onOpen={()=>this.onOpenModal()}>
+                open = {this.state.modalOpen}>
                 <Header icon='filter' content='Filter Using Genres' />
                 <Modal.Content>
                     <div className="ui grid">
@@ -93,4 +83,4 @@ const mapStateToProps = (state) => {
     }
 } 
 
-export default connect(mapStateToProps, {getItemGenres, getItems})(GenreFilter)
+export default connect(mapStateToProps, {getItemGenres, setSingleGenre})(GenreFilter)

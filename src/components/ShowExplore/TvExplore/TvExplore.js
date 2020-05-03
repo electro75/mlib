@@ -7,10 +7,11 @@ import {getItems} from '../../../actions';
 class TvExplore extends React.Component {
 
     componentDidMount() {
-        this.props.getItems('tv', '')
-    }
+        console.log(this.props.selectedGenre);
+        this.props.getItems('tv', this.props.selectedGenre)
+    }    
 
-    render() {
+    render() {        
         return (
             <DisplayItems displayItems={this.props.tvShowDiscover} />
         )
@@ -19,7 +20,8 @@ class TvExplore extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        tvShowDiscover : state.tvShowDiscover
+        tvShowDiscover : state.tvShowDiscover,
+        selectedGenre : state.selectedGenre
     }
 }
 

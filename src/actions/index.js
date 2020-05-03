@@ -15,23 +15,27 @@ export const getItemGenres = (item) => dispatch => _fetchGenres(item, dispatch);
 
 export const getAllGenres = (item) => dispatch => _allGenres(dispatch)
 
+export const setSingleGenre = (item, genre) => async dispatch => {
+
+    dispatch(getItems(item, genre))
+
+    dispatch({type: 'GENRE_CHANGE', payload : genre})
+}
+
 
 function getsubGenre(item) {
     return tmdb.get(`/genre/${item}/list`, {params})
 }
 
-const _allGenres = async (dispatch) => {
+const _allGenres = _.memoize(async (dispatch) => {
     const response = await axios.all([
        getsubGenre('movie'), getsubGenre('tv')
-    ])
-
-    console.log(response);
+    ])    
 
     let res = _.uniqWith([...response[0].data.genres, ...response[1].data.genres], _.isEqual)
     
-
     dispatch({type : 'ALL_GENRES', payload : res })
-}
+})
 
 const _fetchGenres = async (item, dispatch) => {
     const response = await tmdb.get(`/genre/${item}/list`, {params})    

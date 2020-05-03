@@ -2,7 +2,8 @@ import { combineReducers } from 'redux'
 
 const moviesReducer = (state={}, action) => {
     switch(action.type) {
-        case 'FETCH_MOVIES' :                    
+        case 'FETCH_MOVIES' :       
+            console.log('movies')             
             return {...action.payload}
         
         default : 
@@ -43,10 +44,22 @@ const genreReducer = (state = [], action) => {
     }
 }
 
+const singleGenreReducer = (state = '', action) => {
+    switch(action.type) {
+        case 'GENRE_CHANGE':
+            console.log('genre change');            
+            return action.payload
+        
+        default :
+            return state
+    }
+}
+
 
 export default combineReducers({
     movieDiscover : moviesReducer,
     tvShowDiscover : tvShowReducer,
     config : configReducer,
-    genres  : genreReducer
+    genres  : genreReducer,
+    selectedGenre : singleGenreReducer  
 })

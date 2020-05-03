@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 
 import {getItems} from '../../../actions';
 
-class MovieExplore extends React.Component {
+class MovieExplore extends React.Component {     
 
     componentDidMount() {
-        this.props.getItems('movie', '')
+        console.log(this.props.selectedGenre);
+        this.props.getItems('movie', this.props.selectedGenre)
     }
 
-    render() {
+    render() {    
         return (                        
             <DisplayItems displayItems={this.props.movieDiscover} />                                    
         )
@@ -19,7 +20,8 @@ class MovieExplore extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        movieDiscover : state.movieDiscover
+        movieDiscover : state.movieDiscover,
+        selectedGenre : state.selectedGenre
     }
 }
 
