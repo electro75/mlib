@@ -34,6 +34,9 @@ const genreReducer = (state = [], action) => {
     switch(action.type) {
         case 'FETCH_GENRES' : 
             return action.payload.genres
+
+        case 'ALL_GENRES' : 
+            return action.payload
         
         default : 
             return state

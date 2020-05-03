@@ -5,26 +5,32 @@ import { Route } from 'react-router-dom';
 
 import MovieExplore from './MovieExplore/MovieExplore';
 import TvExplore from './TvExplore/TvExplore';
+import GenreFilter from './GenreFilter/GenreFilter';
+import {connect} from 'react-redux';
+import {useLocation} from 'react-router-dom';
+import {getAllGenres} from '../../actions';
 
-class ShowExplore extends React.Component {    
-
-    render() {
-        return (
-            <Segment basic padded className="explore-content" >
-                <div className="discover-display" >
-                    <Route path='/explore-movies' exact component={MovieExplore} />
-                    <Route path='/explore-shows' exact component={TvExplore} />    
-                </div>
-                <div className="filter-btn" >
-                    <button className="ui circular raised green large button">
-                        <i className="filter icon"></i>
-                        Filter
-                    </button>
-                </div>
-            </Segment> 
-        )
-    }
+const ShowExplore = (props)=> {
     
+    const path = useLocation().pathname;
+    let item = (path === '/explore-shows') ? 'tv' : 'movie'; 
+
+    props.getAllGenres();
+
+    return (
+        <Segment basic padded className="explore-content" >
+            <div className="discover-display" >
+                <Route path='/explore-movies' exact component={MovieExplore} />
+                <Route path='/explore-shows' exact component={TvExplore} />    
+            </div>
+            <div className="filter-btn" >
+                <GenreFilter item={item}/>
+            </div>
+        </Segment> 
+    )
 }
 
-export default ShowExplore;
+    
+
+
+export default connect(null, {getAllGenres})(ShowExplore);

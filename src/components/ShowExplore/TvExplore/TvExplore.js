@@ -7,7 +7,7 @@ import {getItems} from '../../../actions';
 class TvExplore extends React.Component {
 
     componentDidMount() {
-        this.props.getItems('tv')
+        this.props.getItems('tv', '')
     }
 
     render() {
