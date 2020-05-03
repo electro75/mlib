@@ -7,7 +7,8 @@ export default class CardImage extends Component {
     handleShow = () => this.setState({ active: true })
     handleHide = () => this.setState({ active: false })
 
-    getDescription() {
+    getDescription() {        
+
         let description = (this.props.overview.length < 200) ? this.props.overview : 
             `${this.props.overview.slice(0,200)}...`
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import './ShowExplore.css'
-import { Segment } from 'semantic-ui-react';
 import { Route } from 'react-router-dom';
 
 import MovieExplore from './MovieExplore/MovieExplore';
@@ -8,7 +7,7 @@ import TvExplore from './TvExplore/TvExplore';
 import GenreFilter from './GenreFilter/GenreFilter';
 import {connect} from 'react-redux';
 import {useLocation} from 'react-router-dom';
-import {getAllGenres} from '../../actions';
+import {getAllGenres, incPage} from '../../actions';
 
 const ShowExplore = (props)=> {
     
@@ -17,8 +16,18 @@ const ShowExplore = (props)=> {
 
     props.getAllGenres();
 
+    const handleScroll = (e) => {        
+        let element = e.target; 
+                
+        
+        if(element.scrollHeight - element.scrollTop === element.clientHeight) {            
+
+            props.incPage(item);
+        }
+    }
+
     return (
-        <Segment basic padded className="explore-content" >
+        <div className='ui explore-content' onScroll={handleScroll} >
             <div className="discover-display" >
                 <Route path='/explore-movies' exact component={MovieExplore} />
                 <Route path='/explore-shows' exact component={TvExplore} />    
@@ -26,11 +35,8 @@ const ShowExplore = (props)=> {
             <div className="filter-btn" >
                 <GenreFilter item={item}/>
             </div>
-        </Segment> 
+        </div> 
     )
 }
 
-    
-
-
-export default connect(null, {getAllGenres})(ShowExplore);
+export default connect(null, {getAllGenres, incPage})(ShowExplore);

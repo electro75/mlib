@@ -8,7 +8,7 @@ class TvExplore extends React.Component {
 
     componentDidMount() {
         console.log(this.props.selectedGenre);
-        this.props.getItems('tv', this.props.selectedGenre)
+        this.props.getItems('tv', this.props.selectedGenre, 1)
     }    
 
     render() {        

@@ -5,8 +5,10 @@
 
 .explore-content {
     overflow: auto;
-    margin-top: none;
+    margin-top: 10px;
     position: relative;
+    overflow-x: hidden;
+    padding: 10px;
 }
 
 .discover-display {

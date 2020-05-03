@@ -3,9 +3,8 @@ import DisplayCard from './DisplayCard/DisplayCard';
 
 class DisplayItems extends React.Component {
 
-
     renderItemList() {
-        return this.props.displayItems.results.map(item => {
+        return this.props.displayItems.results.map(item => {            
             return (
                 <DisplayCard key={item.id} item={item} />
             )

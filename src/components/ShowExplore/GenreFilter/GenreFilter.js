@@ -27,8 +27,8 @@ class GenreFilter extends React.Component {
     }
 
     getGenreItems(genre) {
-        this.props.setSingleGenre(this.props.item, `${genre.id}`)
         this.setState({modalOpen: false})
+        this.props.setSingleGenre(this.props.item, `${genre.id}`)        
     }
 
     renderGenres() {        
@@ -67,7 +67,7 @@ class GenreFilter extends React.Component {
                 <Button 
                     color='red' 
                     inverted
-                    onClick={() => {this.setState({modalOpen: false})}}
+                    onClick={() => {this.getGenreItems({id: ''})}}
                     >
                     <Icon name='times' /> Cancel
                 </Button>                

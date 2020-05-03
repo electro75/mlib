@@ -6,12 +6,11 @@ import {getItems} from '../../../actions';
 
 class MovieExplore extends React.Component {     
 
-    componentDidMount() {
-        console.log(this.props.selectedGenre);
-        this.props.getItems('movie', this.props.selectedGenre)
+    componentDidMount() {        
+        this.props.getItems('movie', this.props.selectedGenre, this.props.currentPage)
     }
 
-    render() {    
+    render() {        
         return (                        
             <DisplayItems displayItems={this.props.movieDiscover} />                                    
         )
@@ -21,7 +20,8 @@ class MovieExplore extends React.Component {
 const mapStateToProps = (state) => {
     return {
         movieDiscover : state.movieDiscover,
-        selectedGenre : state.selectedGenre
+        selectedGenre : state.selectedGenre,
+        currentPage : state.currentPage
     }
 }
 

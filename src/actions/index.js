@@ -7,7 +7,7 @@ const params = {
     api_key : keys.apiKey
 }
 
-export const getItems = (item, genre) => dispatch => _fetchItem(item, genre, dispatch);
+export const getItems = (item, genre, page) => dispatch => _fetchItem(item, genre, page, dispatch);
 
 export const getConfig = () => dispatch => _fetchConfig(dispatch);
 
@@ -15,9 +15,20 @@ export const getItemGenres = (item) => dispatch => _fetchGenres(item, dispatch);
 
 export const getAllGenres = (item) => dispatch => _allGenres(dispatch)
 
+export const incPage = (item) => async (dispatch, getState) => {
+
+    let genre = getState().selectedGenre 
+
+    let page = getState().currentPage + 1;
+
+    dispatch(getItems(item, genre, page))
+
+    dispatch({type : 'PAGE_CHANGE', payload : page})
+}
+
 export const setSingleGenre = (item, genre) => async dispatch => {
 
-    dispatch(getItems(item, genre))
+    dispatch(getItems(item, genre, 1))
 
     dispatch({type: 'GENRE_CHANGE', payload : genre})
 }
@@ -43,10 +54,10 @@ const _fetchGenres = async (item, dispatch) => {
     dispatch({type : 'FETCH_GENRES', payload : response.data})
 }
 
-const _fetchItem = async (item, genre, dispatch) => {    
-    const response = await tmdb.get(`/discover/${item}?api_key=${keys.apiKey}&with_genres=${genre}`);
+const _fetchItem = async (item, genre, page, dispatch) => {    
+    const response = await tmdb.get(`/discover/${item}?api_key=${keys.apiKey}&with_genres=${genre}&page=${page}`);    
 
-    let type = item === 'movie' ? 'FETCH_MOVIES' : 'FETCH_TVSHOWS';
+    let type = item === 'movie' ? (page > 1) ? 'ADD_MOVIES' : 'FETCH_MOVIES' : (page >1) ?'ADD_TVSHOWS' : 'FETCH_TVSHOWS';    
 
     dispatch({type, payload: response.data})
 }
