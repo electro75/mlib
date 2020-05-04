@@ -6,8 +6,7 @@ import {getItems} from '../../../actions';
 
 class TvExplore extends React.Component {
 
-    componentDidMount() {
-        console.log(this.props.selectedGenre);
+    componentDidMount() {        
         this.props.getItems('tv', this.props.selectedGenre, 1)
     }    
 

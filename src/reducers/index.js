@@ -21,6 +21,12 @@ const tvShowReducer = (state = {}, action) => {
     switch(action.type) {
         case 'FETCH_TVSHOWS' :
             return {...action.payload}
+
+        case 'ADD_TVSHOWS' : 
+            return {
+                ...state,
+                results : [...state.results, ...action.payload.results]
+            }
         
         default : 
             return state

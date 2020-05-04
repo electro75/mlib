@@ -12,7 +12,6 @@ class GenreFilter extends React.Component {
 
     componentDidMount() {  
         // this.props.getItemGenres(this.props.item);
-            
     }
 
     getTrigger() {

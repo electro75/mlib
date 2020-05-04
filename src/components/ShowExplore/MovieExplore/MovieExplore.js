@@ -4,10 +4,11 @@ import { connect } from 'react-redux';
 
 import {getItems} from '../../../actions';
 
-class MovieExplore extends React.Component {     
-
-    componentDidMount() {        
+class MovieExplore extends React.Component {
+          
+    componentDidMount() {                
         this.props.getItems('movie', this.props.selectedGenre, this.props.currentPage)
+        
     }
 
     render() {        
