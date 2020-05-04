@@ -29,14 +29,14 @@ class AppHeader extends React.Component {
                         </Menu.Item>                            
                         <Menu.Item
                             name='movies'                            
-                            linkto='explore-movies'
+                            linkto='/explore/movies'
                             active={activeItem === 'movies'}
                             onClick={this.handleItemClick}
                             color='green'                            
                         />
                         <Menu.Item                                    
                             name='TV Shows'                            
-                            linkto='explore-shows'
+                            linkto='/explore/shows'
                             active={activeItem === 'TV Shows'}
                             onClick={this.handleItemClick}
                             color='green'

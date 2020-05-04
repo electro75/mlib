@@ -13,7 +13,7 @@ import _ from 'lodash';
 const ShowExplore = (props)=> {
     
     const path = useLocation().pathname;
-    let item = (path === '/explore-shows') ? 'tv' : 'movie'; 
+    let item = (path === '/explore/shows') ? 'tv' : 'movie'; 
 
     props.getAllGenres();
 
@@ -32,8 +32,8 @@ const ShowExplore = (props)=> {
     return (
         <div className='ui explore-content' onScroll={handleScroll} >
             <div className="discover-display" >                
-                <Route path='/explore-movies' exact component={MovieExplore} />                                
-                <Route path='/explore-shows' exact component={TvExplore} />    
+                <Route path='/explore/movies' exact component={MovieExplore} />                                
+                <Route path='/explore/shows' exact component={TvExplore} />    
             </div>
             <div className="filter-btn" >
                 <GenreFilter item={item}/>

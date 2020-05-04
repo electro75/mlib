@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import AppHeader from './AppHeader/AppHeader';
 import { connect } from 'react-redux';
 import {getConfig} from '../actions';
@@ -17,7 +17,7 @@ class App extends React.Component {
             <BrowserRouter>
                 <div className='app-container' >
                 <AppHeader />
-                <ShowExplore />
+                <Route path = '/explore' component={ShowExplore}/>                
                 </div>
             </BrowserRouter>
         )
