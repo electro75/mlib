@@ -2,3 +2,7 @@
     width : 22%;
     color: green;
 }
+
+.menu-item :hover {
+    color: #16AB39;
+}

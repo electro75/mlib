@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import {getConfig} from '../actions';
 import './App.css';
 import ShowExplore from './ShowExplore/ShowExplore';
+import ItemSearch from './ItemSearch/ItemSearch';
 
 class App extends React.Component {
 
@@ -17,7 +18,8 @@ class App extends React.Component {
             <BrowserRouter>
                 <div className='app-container' >
                 <AppHeader />
-                <Route path = '/explore' component={ShowExplore}/>                
+                <Route path = '/explore' component={ShowExplore}/>
+                <Route path = '/search' component={ItemSearch} />
                 </div>
             </BrowserRouter>
         )
