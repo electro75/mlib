@@ -15,6 +15,8 @@ export const getItemGenres = (item) => dispatch => _fetchGenres(item, dispatch);
 
 export const getAllGenres = (item) => dispatch => _allGenres(dispatch)
 
+export const getSearch = (query, page) => dispatch => fetchSearchReults(query, page, dispatch)
+
 export const incPage = (item) => async (dispatch, getState) => {
 
     let genre = getState().selectedGenre 
@@ -24,6 +26,10 @@ export const incPage = (item) => async (dispatch, getState) => {
     dispatch(getItems(item, genre, page))
 
     dispatch({type : 'PAGE_CHANGE', payload : page})
+}
+
+export const toggleLoader = (bool) => {
+    return {type : 'TOGGLE_LOADER', payload : bool}
 }
 
 export const setSingleGenre = (item, genre) => async dispatch => {
@@ -60,6 +66,14 @@ const _fetchItem = async (item, genre, page, dispatch) => {
     let type = item === 'movie' ? (page > 1) ? 'ADD_MOVIES' : 'FETCH_MOVIES' : (page >1) ?'ADD_TVSHOWS' : 'FETCH_TVSHOWS';    
 
     dispatch({type, payload: response.data})
+}
+
+const fetchSearchReults = async (query, page, dispatch) => {
+    const response = await tmdb.get(`/search/multi?api_key=${keys.apiKey}&query=${query}&page=${page}`);
+
+    dispatch({ type: 'TOGGLE_LOADER', payload : false })
+
+    dispatch({type : 'FETCH_SEARCH', payload:response.data})
 }
 
 const _fetchConfig = _.memoize(async (dispatch) => {

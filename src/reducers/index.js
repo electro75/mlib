@@ -66,6 +66,26 @@ const singleGenreReducer = (state = '', action) => {
     }
 }
 
+const loadingReducer = (state = false, action) => {
+    switch (action.type) {
+        case 'TOGGLE_LOADER' : 
+            return action.payload
+
+        default : 
+            return state
+    }
+}
+
+const searchReducer = (state = {}, action) => {
+    switch(action.type) {
+        case 'FETCH_SEARCH' : 
+            return action.payload
+
+        default : 
+            return state
+    }
+}
+
 const pageReducer = (state = 1, action) => {
     switch(action.type) {
         case 'PAGE_CHANGE' :
@@ -83,5 +103,7 @@ export default combineReducers({
     config : configReducer,
     genres  : genreReducer,
     selectedGenre : singleGenreReducer,
-    currentPage : pageReducer 
+    currentPage : pageReducer ,
+    searchResults : searchReducer,
+    loaderState : loadingReducer
 })

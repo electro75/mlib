@@ -6,11 +6,19 @@ class DisplayCard extends React.Component {
 
     getImage () {
         const {item, config} = this.props;
-        if(config) {
+        
+        if(config && item.poster_path) {
             let str = `${config.base_url}${config.poster_sizes[(config.poster_sizes.length -3)]}${item.poster_path}`;
             return (                                                                    
                 <CardImage image={str} overview={item.overview} />
             )
+        }  else if(config && item.profile_path) {            
+            let str = `${config.base_url}${config.poster_sizes[(config.poster_sizes.length -3)]}${item.profile_path}`;
+
+            return (
+                <CardImage image={str} />
+            )
+
         } else {
             return (
                 <div className="ui placeholder">
@@ -28,14 +36,44 @@ class DisplayCard extends React.Component {
     }
 
     getDate() {
-        let date = this.props.item.release_date ? new Date(this.props.item.release_date).getFullYear() : 
+        if(this.props.item.release_date) {
+            let date = this.props.item.release_date ? new Date(this.props.item.release_date).getFullYear() : 
                     new Date(this.props.item.first_air_date).getFullYear();
 
-        return date;
+            return date;
+        } else return null        
     }
 
-    render() {
-        const {item} = this.props;
+    getVoteAverage() {
+        if(this.props.item.vote_average) {
+            return (
+                <div>
+                    <i className="star icon green"></i>
+                        {this.props.item.vote_average}/10
+                </div>
+                
+            )
+        } else {
+            return null
+        }
+    }
+
+    getVoteCount() {
+        if(this.props.item.vote_count) {
+            return (
+                <div className="right floated">
+                        <i className="users icon green"></i>
+                        {this.props.item.vote_count}
+                    </div>
+            )
+        } else {
+            return null
+        }
+    }
+
+    render() {        
+        const {item} = this.props;        
+
         return (
             <div className="ui card" style={{cursor : 'pointer'}} >
                 <div className="image">
@@ -48,13 +86,8 @@ class DisplayCard extends React.Component {
                     </div>                    
                 </div> 
                 <div className="extra content">
-                    <i className="star icon green"></i>
-                    {item.vote_average}/10
-                    <div className="right floated">
-                        <i className="users icon green"></i>
-                        {item.vote_count}
-                    </div>
-                    
+                    { this.getVoteAverage() }
+                    { this.getVoteCount() }                    
                 </div>              
             </div>
         )
