@@ -72,7 +72,6 @@ class DisplayCard extends React.Component {
     }
 
     render() {        
-        const {item} = this.props;        
 
         return (
             <div className="ui card" style={{cursor : 'pointer'}} >

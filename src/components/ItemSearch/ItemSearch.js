@@ -15,6 +15,20 @@ class ItemSearch extends React.Component {
         
     }
 
+    getDisplay() {
+        if(this.props.searchResults.status === 'EMPTY') {
+            return (
+                <div className='empty-state-container' >
+                    Results will appear here!
+                </div>
+            )
+        } else {
+            return (
+                <DisplayItems  displayItems = {this.props.searchResults}/>
+            )
+        }
+    }
+
     render() {
         return (
             <div>
@@ -27,8 +41,9 @@ class ItemSearch extends React.Component {
                                 <input 
                                     type="text" 
                                     disabled = {this.props.isLoading}
-                                    placeholder="Search movies, celebrities, shows...." 
+                                    placeholder="Type something and hit enter" 
                                     className='search-input'
+                                    autoFocus
                                     onKeyPress={this.getResults}
                                     />
                                 <i className="search green link icon"></i>
@@ -38,15 +53,14 @@ class ItemSearch extends React.Component {
                     
                 </div>
                 <div className='ui segment basic padded result-container' >
-                    <DisplayItems  displayItems = {this.props.searchResults}/>
+                    {this.getDisplay()}                    
                 </div>
             </div>
         )
     }    
 }
 
-const mapStateToProps = (state) => {
-    console.log(state.searchResults);
+const mapStateToProps = (state) => {    
     return {
         searchResults : state.searchResults,
         isLoading : state.loaderState

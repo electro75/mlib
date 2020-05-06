@@ -76,10 +76,13 @@ const loadingReducer = (state = false, action) => {
     }
 }
 
-const searchReducer = (state = {}, action) => {
+const searchReducer = (state = { status : 'EMPTY'}, action) => {
     switch(action.type) {
         case 'FETCH_SEARCH' : 
             return action.payload
+
+        case 'INIT_SEARCH' :
+            return { status : '', results : [] }
 
         default : 
             return state

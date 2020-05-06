@@ -39,6 +39,12 @@ export const setSingleGenre = (item, genre) => async dispatch => {
     dispatch({type: 'GENRE_CHANGE', payload : genre})
 }
 
+export const searchInit = () => {
+    return {
+        type : 'INIT_SEARCH'
+    }
+}
+
 
 function getsubGenre(item) {
     return tmdb.get(`/genre/${item}/list`, {params})

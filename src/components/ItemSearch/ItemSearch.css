@@ -10,3 +10,10 @@
     height: 80vh;
     overflow: scroll;
 }
+
+.empty-state-container {
+    height : 100%;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+}
