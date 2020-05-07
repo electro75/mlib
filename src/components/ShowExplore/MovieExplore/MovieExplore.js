@@ -7,7 +7,7 @@ import {getItems} from '../../../actions';
 class MovieExplore extends React.Component {
           
     componentDidMount() {                
-        this.props.getItems('movie', this.props.selectedGenre, this.props.currentPage)
+        this.props.getItems('movie', this.props.selectedGenre, 1)
         
     }
 

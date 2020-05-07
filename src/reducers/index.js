@@ -84,6 +84,12 @@ const searchReducer = (state = { status : 'EMPTY'}, action) => {
         case 'INIT_SEARCH' :
             return { status : '', results : [] }
 
+        case 'ADD_SEARCH' : 
+            return { 
+                ...state,
+                results : [...state.results, ...action.payload.results]
+            }
+
         default : 
             return state
     }

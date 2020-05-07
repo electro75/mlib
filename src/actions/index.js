@@ -28,6 +28,15 @@ export const incPage = (item) => async (dispatch, getState) => {
     dispatch({type : 'PAGE_CHANGE', payload : page})
 }
 
+export const incSearchPage = (query) => async (dispatch, getState) => {
+
+    let page = getState().currentPage + 1;
+
+    dispatch({type : 'PAGE_CHANGE', payload : page})
+
+    fetchSearchReults(query, page, dispatch);
+}
+
 export const toggleLoader = (bool) => {
     return {type : 'TOGGLE_LOADER', payload : bool}
 }
@@ -69,7 +78,11 @@ const _fetchGenres = async (item, dispatch) => {
 const _fetchItem = async (item, genre, page, dispatch) => {    
     const response = await tmdb.get(`/discover/${item}?api_key=${keys.apiKey}&with_genres=${genre}&page=${page}`);    
 
-    let type = item === 'movie' ? (page > 1) ? 'ADD_MOVIES' : 'FETCH_MOVIES' : (page >1) ?'ADD_TVSHOWS' : 'FETCH_TVSHOWS';    
+    let type = item === 'movie' ? (page > 1) ? 'ADD_MOVIES' : 'FETCH_MOVIES' : (page >1) ?'ADD_TVSHOWS' : 'FETCH_TVSHOWS';
+
+    if(page === 1) {
+        dispatch({type : 'PAGE_CHANGE', payload : 1})
+    }
 
     dispatch({type, payload: response.data})
 }
@@ -79,7 +92,14 @@ const fetchSearchReults = async (query, page, dispatch) => {
 
     dispatch({ type: 'TOGGLE_LOADER', payload : false })
 
-    dispatch({type : 'FETCH_SEARCH', payload:response.data})
+    if(page === 1) {
+        dispatch({type : 'FETCH_SEARCH', payload:response.data})
+        dispatch({type : 'PAGE_CHANGE', payload : 1})
+    } else {
+        dispatch({type : 'ADD_SEARCH', payload:response.data})
+    }
+
+    
 }
 
 const _fetchConfig = _.memoize(async (dispatch) => {

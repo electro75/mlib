@@ -2,15 +2,19 @@ import React from 'react';
 import './ItemSearch.css';
 import DisplayItems from '../DisplayItems/DisplayItems';
 import { connect } from 'react-redux';
-import { toggleLoader, getSearch } from '../../actions';
+import { toggleLoader, getSearch, incSearchPage } from '../../actions';
+import _ from 'lodash';
 
-class ItemSearch extends React.Component {   
+class ItemSearch extends React.Component {
+    
+    query = ''
     
     getResults = (e) => {
         if(e.key === 'Enter') {
 
             this.props.toggleLoader(true);        
             this.props.getSearch(e.target.value, 1)
+            this.query = e.target.value
         }
         
     }
@@ -26,6 +30,18 @@ class ItemSearch extends React.Component {
             return (
                 <DisplayItems  displayItems = {this.props.searchResults}/>
             )
+        }
+    }
+
+    callAction = _.debounce(() => {
+        this.props.incSearchPage(this.query);
+        // props.incPage(item);
+    }, 1000)
+
+    handleScroll = (e) => {
+        let element = e.target;                                    
+        if((element.scrollHeight - element.scrollTop - element.clientHeight) < 5) {            
+            this.callAction();
         }
     }
 
@@ -52,7 +68,9 @@ class ItemSearch extends React.Component {
                     </div>
                     
                 </div>
-                <div className='ui segment basic padded result-container' >
+                <div 
+                    className='ui segment basic padded result-container'
+                    onScroll={this.handleScroll}>
                     {this.getDisplay()}                    
                 </div>
             </div>
@@ -68,4 +86,4 @@ const mapStateToProps = (state) => {
 
 }
 
-export default connect(mapStateToProps, { toggleLoader, getSearch })(ItemSearch);
+export default connect(mapStateToProps, { toggleLoader, getSearch, incSearchPage })(ItemSearch);
