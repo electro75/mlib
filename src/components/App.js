@@ -6,6 +6,7 @@ import {getConfig} from '../actions';
 import './App.css';
 import ShowExplore from './ShowExplore/ShowExplore';
 import ItemSearch from './ItemSearch/ItemSearch';
+import SingleItem from './SingleItem/SingleItem';
 
 class App extends React.Component {
 
@@ -20,6 +21,7 @@ class App extends React.Component {
                 <AppHeader />
                 <Route path = '/explore' component={ShowExplore}/>
                 <Route path = '/search' component={ItemSearch} />
+                <Route path = '/details/:id' component = {SingleItem} />
                 </div>
             </BrowserRouter>
         )

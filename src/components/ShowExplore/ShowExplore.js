@@ -32,8 +32,8 @@ const ShowExplore = (props)=> {
     return (
         <div className='ui explore-content' onScroll={handleScroll} >
             <div className="discover-display" >                
-                <Route path='/explore/movies' exact component={MovieExplore} />                                
-                <Route path='/explore/shows' exact component={TvExplore} />    
+                <Route path={props.match.url + '/movies'} exact component={MovieExplore} />                                
+                <Route path={props.match.url + '/shows'} exact component={TvExplore} />    
             </div>
             <div className="filter-btn" >
                 <GenreFilter item={item}/>

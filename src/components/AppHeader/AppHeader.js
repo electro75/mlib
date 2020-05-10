@@ -13,8 +13,7 @@ class AppHeader extends React.Component {
         }
     }
 
-    getPath() {
-        console.log(this.props.location.pathname);
+    getPath() {        
         switch(this.props.location.pathname) {
             case '/explore/movies' : 
                 return 'movies'

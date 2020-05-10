@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import CardImage from './CardImage';
+import {withRouter} from 'react-router-dom'
 
 class DisplayCard extends React.Component {
 
@@ -71,10 +72,17 @@ class DisplayCard extends React.Component {
         }
     }
 
+    redirectToDetails() {
+        this.props.history.push(`/details/${this.props.item.id}`)
+    }
+
     render() {        
 
         return (
-            <div className="ui card" style={{cursor : 'pointer'}} >
+            <div 
+                className="ui card" 
+                style={{cursor : 'pointer'}}
+                onClick={() => {this.redirectToDetails()}} >
                 <div className="image">
                     {this.getImage()}
                 </div>
@@ -100,4 +108,4 @@ const mapStateTOProps = (state) => {
     }
 }
 
-export default connect(mapStateTOProps)(DisplayCard);
+export default withRouter(connect(mapStateTOProps)(DisplayCard));
