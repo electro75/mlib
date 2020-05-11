@@ -12,7 +12,7 @@ class TvExplore extends React.Component {
 
     render() {        
         return (
-            <DisplayItems displayItems={this.props.tvShowDiscover} />
+            <DisplayItems displayItems={this.props.tvShowDiscover} itemDisplay='tv'/>
         )
     }
 }

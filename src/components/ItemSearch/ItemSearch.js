@@ -28,7 +28,7 @@ class ItemSearch extends React.Component {
             )
         } else {
             return (
-                <DisplayItems  displayItems = {this.props.searchResults}/>
+                <DisplayItems  displayItems = {this.props.searchResults} itemDisplay='search'/>
             )
         }
     }

@@ -1,11 +1,21 @@
 import React from 'react';
 import {useParams} from 'react-router-dom';
+import {connect} from 'react-redux'
 
-const SingleItem = () => {
 
-    let params = useParams();    
+class SingleItem extends React.Component {
 
-return <div>{[params.id]}</div>
+
+    componentDidMount() {
+        const { match: { params } } = this.props;
+
+        console.log(params);
+        // call getDetails API.
+    }
+
+    render() {        
+        return <div>Single Item</div>
+    }
 }
 
-export default SingleItem
+export default connect()(SingleItem)

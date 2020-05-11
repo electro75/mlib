@@ -72,8 +72,8 @@ class DisplayCard extends React.Component {
         }
     }
 
-    redirectToDetails() {
-        this.props.history.push(`/details/${this.props.item.id}`)
+    redirectToDetails() {         
+        this.props.history.push(`/details/${this.props.type}/${this.props.item.id}`)
     }
 
     render() {        

@@ -6,13 +6,17 @@ class DisplayItems extends React.Component {
     renderItemList() {
         return this.props.displayItems.results.map(item => {                        
             return (
-                <DisplayCard key={item.id} item={item} />
+                <DisplayCard 
+                    key={item.id} 
+                    item={item}
+                    type={this.props.itemDisplay === 'search'? item.media_type : this.props.itemDisplay }
+                />
             )
         })
     }
 
     renderLoader() {
-        let loadArr = [1,2,3,4,5,6,7,8,9,10];
+        let loadArr = [1,2,3,4,5];
 
         return loadArr.map(n => {
             return (
@@ -38,7 +42,15 @@ class DisplayItems extends React.Component {
         })
     }
 
-    render() {        
+    getLoader() {
+        if(this.props.displayItems.page === this.props.displayItems.total_pages) {
+            return null
+        } else {
+            return this.renderLoader()
+        }
+    }
+
+    render() {           
         if(!this.props.displayItems.results) {
             return (
                 <div className="ui five cards">
@@ -50,6 +62,7 @@ class DisplayItems extends React.Component {
                 <div>                    
                     <div className='ui five cards' >
                         {this.renderItemList()}
+                        {this.getLoader()}
                     </div>
                 </div>                
             )

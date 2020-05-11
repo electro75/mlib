@@ -13,7 +13,7 @@ class MovieExplore extends React.Component {
 
     render() {        
         return (                        
-            <DisplayItems displayItems={this.props.movieDiscover} />                                    
+            <DisplayItems displayItems={this.props.movieDiscover} itemDisplay='movie' />                                    
         )
     }
 }

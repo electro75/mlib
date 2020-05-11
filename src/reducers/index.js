@@ -56,6 +56,16 @@ const genreReducer = (state = [], action) => {
     }
 }
 
+const detailReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_DETAILS' : 
+            return action.payload
+
+        default : 
+            return state
+    }
+}
+
 const singleGenreReducer = (state = '', action) => {
     switch(action.type) {
         case 'GENRE_CHANGE':            
@@ -114,5 +124,6 @@ export default combineReducers({
     selectedGenre : singleGenreReducer,
     currentPage : pageReducer ,
     searchResults : searchReducer,
+    itemDetails : detailReducer,
     loaderState : loadingReducer
 })

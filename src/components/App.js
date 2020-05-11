@@ -21,7 +21,7 @@ class App extends React.Component {
                 <AppHeader />
                 <Route path = '/explore' component={ShowExplore}/>
                 <Route path = '/search' component={ItemSearch} />
-                <Route path = '/details/:id' component = {SingleItem} />
+                <Route path = '/details/:type/:id' component = {SingleItem} />
                 </div>
             </BrowserRouter>
         )
