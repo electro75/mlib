@@ -2,20 +2,26 @@ import React from 'react';
 import {connect} from 'react-redux';
 import tmdb from '../../api/tmdb';
 import keys from '../../config/keys';
-
+import './SingleItem.css';
 
 class SingleItem extends React.Component {
 
     constructor(props) {
         super(props);
         
-        this.state = {}
+        this.state = {
+            isData : false
+        }
     }
 
     async getDetails(type, id) {    
-        const response = await tmdb.get(`/${type}/${id}?api_key=${keys.apiKey}&append_to_response=recommendations,videos,credits`)
-        console.log(response.data);
-        this.setState = (response.data)
+        const response = await tmdb.get(`/${type}/${id}?api_key=${keys.apiKey}&append_to_response=recommendations,videos,credits`)        
+        if(response.status === 200) {
+            this.setState({
+                isData : true,
+                data : response.data
+            })
+        }        
     }
 
     componentDidMount() {
@@ -25,11 +31,30 @@ class SingleItem extends React.Component {
         this.getDetails(type, id)
     }
 
-    render() {        
-        return (
-            <div>Single Item</div>
-        )
+    getImage() {
+        return 
+    }
+
+    render() {
+        if(this.state.isData && this.props.imageConfig) {
+            let details = this.state.data            
+            return (
+                <div className='main-container'>                    
+                    Single Item
+                </div>
+                    
+            )
+        } else {
+            return <div>fetching...</div>
+        }
+        
     }
 }
 
-export default connect()(SingleItem)
+const mapStateToProps = (state) => {     
+    return {
+        imageConfig : state.config.images
+    }
+}
+
+export default connect(mapStateToProps)(SingleItem)
