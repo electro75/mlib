@@ -54,18 +54,6 @@ export const searchInit = () => {
     }
 }
 
-export const getDetails = (type, id) => async dispatch => {
-    let params = {
-        ...params,
-        append_to_response : 'recommendations, videos'
-    }
-
-    const response = await tmdb.get(`/${type}/${id}`, {params});
-
-    dispatch({type : 'GET_DETAILS', payload : response.data})
-}
-
-
 function getsubGenre(item) {
     return tmdb.get(`/genre/${item}/list`, {params})
 }
