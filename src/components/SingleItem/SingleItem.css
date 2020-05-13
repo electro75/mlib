@@ -1,2 +1,31 @@
+.main-container {
+    height: 100%;
+    position: relative;
+    overflow-y: scroll;
+}
 
+.main-bg {
+    height: 90%;    
+    position: 'absolute';
+    right : 0;
+    bottom: 0;
+    border-bottom: 1px solid rgba(18.24%, 18.43%, 19.61%, 1.00);
+}
 
+.fake-bg {
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(14.12%, 14.51%, 16.86%, 1.00) 150px, rgba(22.35%, 22.35%, 22.35%, 0.84) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-container {
+    width: 75%;
+    max-height: 75%;
+    display: flex;
+}
+
+.image-card {
+    width: 25%
+}

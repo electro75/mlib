@@ -29,20 +29,36 @@ class SingleItem extends React.Component {
         const {type, id} = params
 
         this.getDetails(type, id)
-    }
+    }    
 
-    getImage() {
-        return 
-    }
-
-    render() {
+    render() {        
         if(this.state.isData && this.props.imageConfig) {
             let details = this.state.data            
+            console.log(details);
             return (
-                <div className='main-container'>                    
-                    Single Item
+                <div className='main-container'>
+                    <div className='main-bg' style={{backgroundImage : `url(${this.props.imageConfig.base_url}${this.props.imageConfig.backdrop_sizes[2]}${this.state.data.backdrop_path})`,
+                        backgroundPosition:'center top', backgroundRepeat:'no-repeat'}} >
+                        <div className='fake-bg' >
+                            <div className='header-container'>
+                                <div className='image-card' >
+                                    <div className='ui card' >
+                                        <div className='image' >
+                                            <img src={`${this.props.imageConfig.base_url}original${details.poster_path}`} alt='poster'/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='header-details' >
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                    <div>
+                        display details here
+                    </div>              
                 </div>
-                    
+                
             )
         } else {
             return <div>fetching...</div>
@@ -52,6 +68,7 @@ class SingleItem extends React.Component {
 }
 
 const mapStateToProps = (state) => {     
+    console.log(state.config.images);
     return {
         imageConfig : state.config.images
     }
