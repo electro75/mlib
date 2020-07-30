@@ -33,8 +33,8 @@ class SingleItem extends React.Component {
 
     render() {        
         if(this.state.isData && this.props.imageConfig) {
-            let details = this.state.data            
-            console.log(details);
+            console.log(this.state.data);
+            let details = this.state.data                        
             return (
                 <div className='main-container'>
                     <div className='main-bg' style={{backgroundImage : `url(${this.props.imageConfig.base_url}${this.props.imageConfig.backdrop_sizes[2]}${this.state.data.backdrop_path})`,
@@ -42,19 +42,16 @@ class SingleItem extends React.Component {
                         <div className='fake-bg' >
                             <div className='header-container'>
                                 <div className='image-card' >
-                                    <div className='ui card' >
-                                        <div className='image' >
-                                            <img src={`${this.props.imageConfig.base_url}original${details.poster_path}`} alt='poster'/>
-                                        </div>
-                                    </div>
+                                <img src={`${this.props.imageConfig.base_url}original${details.poster_path}`} alt='poster' className="detail-image"/>
                                 </div>
                                 <div className='header-details' >
-                                    
+                                    <h1>{this.state.data.name || this.state.data.title}</h1>
+                                    {this.state.data.overview}
                                 </div>
                             </div>
                         </div>
                     </div>  
-                    <div>
+                    <div className="item-details" >
                         display details here
                     </div>              
                 </div>
@@ -67,8 +64,7 @@ class SingleItem extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {     
-    console.log(state.config.images);
+const mapStateToProps = (state) => {             
     return {
         imageConfig : state.config.images
     }

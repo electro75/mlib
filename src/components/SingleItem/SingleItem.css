@@ -1,5 +1,5 @@
 .main-container {
-    height: 100%;
+    height: 85%;
     position: relative;
     overflow-y: scroll;
 }
@@ -14,7 +14,10 @@
 
 .fake-bg {
     height: 100%;
-    background-image: linear-gradient(to right, rgba(14.12%, 14.51%, 16.86%, 1.00) 150px, rgba(22.35%, 22.35%, 22.35%, 0.84) 100%);
+    background-image: linear-gradient(to right, rgba(14.12%, 14.51%, 16.86%, 1.00) 150px,
+                         rgba(22.35%, 22.35%, 22.35%, 0.84) 100%);
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,8 +27,23 @@
     width: 75%;
     max-height: 75%;
     display: flex;
+    padding: 30px;
+    background-color: rgba(14.12%, 14.51%, 16.86%, 0.4);
+    justify-content: space-between;
+    /* align-items: center; */
 }
 
 .image-card {
-    width: 25%
+    max-width: 25%;    
+    overflow: hidden;
+}
+
+.detail-image {    
+    max-height: 100%;
+    border-radius: 5px;
+}
+
+.header-details {
+    color: #fff;
+    
 }

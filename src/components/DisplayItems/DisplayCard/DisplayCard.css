@@ -1,0 +1,12 @@
+.card__footer {
+    display: flex;
+    justify-content: space-between;    
+}
+.ui.cards>div.card__self {
+    overflow: hidden;
+    transition: all .3s;
+}
+
+.ui.cards>div.card__self:hover{
+    transform: scale(1.03);    
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import CardImage from './CardImage';
 import {withRouter} from 'react-router-dom'
+import './DisplayCard.css';
 
 class DisplayCard extends React.Component {
 
@@ -62,7 +63,7 @@ class DisplayCard extends React.Component {
     getVoteCount() {
         if(this.props.item.vote_count) {
             return (
-                <div className="right floated">
+                <div>
                         <i className="users icon green"></i>
                         {this.props.item.vote_count}
                     </div>
@@ -80,7 +81,7 @@ class DisplayCard extends React.Component {
 
         return (
             <div 
-                className="ui card" 
+                className="ui card card__self" 
                 style={{cursor : 'pointer'}}
                 onClick={() => {this.redirectToDetails()}} >
                 <div className="image">
@@ -92,7 +93,7 @@ class DisplayCard extends React.Component {
                         <span>{this.getDate()}</span>
                     </div>                    
                 </div> 
-                <div className="extra content">
+                <div className="extra card__footer">
                     { this.getVoteAverage() }
                     { this.getVoteCount() }                    
                 </div>              
