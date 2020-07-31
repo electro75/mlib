@@ -32,20 +32,22 @@ class SingleItem extends React.Component {
     }    
 
     render() {        
-        if(this.state.isData && this.props.imageConfig) {
-            console.log(this.state.data);
+        if(this.state.isData && this.props.imageConfig) {            
+            console.log(this.props.imageConfig)
             let details = this.state.data                        
             return (
                 <div className='main-container'>
                     <div className='main-bg' style={{backgroundImage : `url(${this.props.imageConfig.base_url}${this.props.imageConfig.backdrop_sizes[2]}${this.state.data.backdrop_path})`,
-                        backgroundPosition:'center top', backgroundRepeat:'no-repeat'}} >
+                        backgroundPosition:'center top', backgroundRepeat:'no-repeat', backgroundSize:'cover'}} >
                         <div className='fake-bg' >
                             <div className='header-container'>
                                 <div className='image-card' >
                                 <img src={`${this.props.imageConfig.base_url}original${details.poster_path}`} alt='poster' className="detail-image"/>
                                 </div>
                                 <div className='header-details' >
-                                    <h1>{this.state.data.name || this.state.data.title}</h1>
+                                    <div className="title-container" >
+                                        <h1 className="header__title" >{this.state.data.name || this.state.data.title}</h1>
+                                    </div>                                                                       
                                     {this.state.data.overview}
                                 </div>
                             </div>

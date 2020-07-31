@@ -14,10 +14,10 @@
 
 .fake-bg {
     height: 100%;
-    background-image: linear-gradient(to right, rgba(14.12%, 14.51%, 16.86%, 1.00) 150px,
-                         rgba(22.35%, 22.35%, 22.35%, 0.84) 100%);
-    background-size: cover;
-    background-position: center;
+    /* background-image: linear-gradient(to right, rgba(14.12%, 14.51%, 16.86%, 1.00) 150px,
+                         rgba(22.35%, 22.35%, 22.35%, 0.84) 100%); */
+    /* background-size: cover;
+    background-position: center; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,9 +28,8 @@
     max-height: 75%;
     display: flex;
     padding: 30px;
-    background-color: rgba(14.12%, 14.51%, 16.86%, 0.4);
-    justify-content: space-between;
-    /* align-items: center; */
+    background-color: rgba(14.12%, 14.51%, 16.86%, 0.7);
+    justify-content: space-around;    
 }
 
 .image-card {
@@ -38,12 +37,18 @@
     overflow: hidden;
 }
 
-.detail-image {    
-    max-height: 100%;
+.detail-image {        
     border-radius: 5px;
+    height: 100%;    
 }
 
 .header-details {
     color: #fff;
-    
+    max-width: 70%;;
+}
+
+.title-container {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid rgba(22, 171, 57, 0.5);
 }
