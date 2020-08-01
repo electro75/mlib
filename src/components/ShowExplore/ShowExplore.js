@@ -3,7 +3,7 @@ import './ShowExplore.css'
 import { Route } from 'react-router-dom';
 import MovieExplore from './MovieExplore/MovieExplore';
 import TvExplore from './TvExplore/TvExplore';
-import GenreFilter from './GenreFilter/GenreFilter';
+// import GenreFilter from './GenreFilter/GenreFilter';
 import { useLocation } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getAllGenres, incPage} from '../../actions';
@@ -35,9 +35,9 @@ const ShowExplore = (props)=> {
                 <Route path={props.match.url + '/movies'} exact component={MovieExplore} />                                
                 <Route path={props.match.url + '/shows'} exact component={TvExplore} />    
             </div>
-            <div className="filter-btn" >
+            {/* <div className="filter-btn" >
                 <GenreFilter item={item}/>
-            </div>
+            </div> */}
         </div> 
     )
 }

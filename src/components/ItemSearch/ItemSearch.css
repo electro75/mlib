@@ -8,7 +8,7 @@
 
 .result-container {
     height: 80vh;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .empty-state-container {

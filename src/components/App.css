@@ -1,6 +1,8 @@
-.app-container {
-    height: 100vh;  
+.app-container {    
     display: flex;
-    flex-flow: column; 
-    overflow: hidden;      
+    flex-flow: column;     
+}
+
+.body-box {
+    margin-top: 70px;
 }

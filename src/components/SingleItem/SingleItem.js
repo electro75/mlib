@@ -61,8 +61,7 @@ class SingleItem extends React.Component {
             return (
                 <div className='main-container'>
                     <div className='main-bg' style={{backgroundImage : `url(${this.props.imageConfig.base_url}${this.props.imageConfig.backdrop_sizes[2]}${this.state.data.backdrop_path})`,
-                        backgroundPosition:'center top', backgroundRepeat:'no-repeat', backgroundSize:'cover'}} >
-                        <div className='fake-bg' >
+                        backgroundPosition:'center top', backgroundRepeat:'no-repeat', backgroundSize:'cover'}} >                        
                             <div className='header-container'>
                                 <div className='image-card' >
                                     {this.getPosterPic(details)}
@@ -81,8 +80,7 @@ class SingleItem extends React.Component {
                                         
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div>                        
                     </div>  
                     <div className="item-details" >
                         display details here

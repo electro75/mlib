@@ -40,7 +40,7 @@ class AppHeader extends React.Component {
         const {activeItem} = this.state;
 
         return (
-            <div>
+            <div className="app-header__container" >
                 <Menu 
                     size='massive'                         
                     pointing 

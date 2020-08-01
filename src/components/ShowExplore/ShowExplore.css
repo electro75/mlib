@@ -4,11 +4,8 @@
     
 }
 
-.explore-content {
-    overflow: auto;
-    margin-top: 10px;
-    position: relative;
-    overflow-x: hidden;
+.explore-content {        
+    position: relative;    
     padding: 10px;    
 }
 
