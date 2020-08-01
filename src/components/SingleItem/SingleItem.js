@@ -29,12 +29,35 @@ class SingleItem extends React.Component {
         const {type, id} = params
 
         this.getDetails(type, id)
-    }    
+    }
+    
+    getGenres() {
+        if(this.state.data.genres) {
+            return this.state.data.genres.map(genre => {
+                return (
+                    <div className="genre__pill" key={genre.id} >{genre.name}</div>
+                )
+            })
+        }
+        else 
+        return null
+    }
+
+    getPosterPic(details) {
+        if(details.poster_path) {
+            return (
+                <img src={`${this.props.imageConfig.base_url}original${details.poster_path}`} alt='poster' className="detail-image"/>
+            )
+        } else if(details.profile_path) {
+            return <img src={`${this.props.imageConfig.base_url}original${details.profile_path}`} alt='poster' className="detail-image"/>
+        }
+        
+    }
 
     render() {        
         if(this.state.isData && this.props.imageConfig) {            
-            console.log(this.props.imageConfig)
-            let details = this.state.data                        
+            let details = this.state.data
+            console.log(details);
             return (
                 <div className='main-container'>
                     <div className='main-bg' style={{backgroundImage : `url(${this.props.imageConfig.base_url}${this.props.imageConfig.backdrop_sizes[2]}${this.state.data.backdrop_path})`,
@@ -42,13 +65,21 @@ class SingleItem extends React.Component {
                         <div className='fake-bg' >
                             <div className='header-container'>
                                 <div className='image-card' >
-                                <img src={`${this.props.imageConfig.base_url}original${details.poster_path}`} alt='poster' className="detail-image"/>
+                                    {this.getPosterPic(details)}
                                 </div>
                                 <div className='header-details' >
-                                    <div className="title-container" >
-                                        <h1 className="header__title" >{this.state.data.name || this.state.data.title}</h1>
-                                    </div>                                                                       
-                                    {this.state.data.overview}
+                                    <div className="title-container sub__container">
+                                        <h2 className="header__title" >{this.state.data.name || this.state.data.title}</h2>
+                                    </div>
+                                    <div className="pill__container sub__container">
+                                        {this.getGenres()}
+                                    </div>
+                                    <div className="overview__container sub__container" >
+                                        {this.state.data.overview}
+                                    </div>
+                                    <div className="detail__container sub__container" >
+                                        
+                                    </div>
                                 </div>
                             </div>
                         </div>
