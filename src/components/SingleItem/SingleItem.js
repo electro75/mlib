@@ -54,6 +54,38 @@ class SingleItem extends React.Component {
         
     }
 
+    getProducer(details) {
+        if(details.production_companies) {
+            let p_c = details.production_companies.filter(p_c => p_c.logo_path)
+
+            return (
+                <div>
+                    {p_c.map(p => {
+                        return <img src={`${this.props.imageConfig.base_url}/${this.props.imageConfig.logo_sizes[1]}/${p.logo_path}`} key={p.id}
+                                alt='logo' className="pc_logo"/>
+                    })}
+                </div>    
+            )
+            
+        }
+    }
+
+    getLength(details) {
+        if(details.number_of_seasons) {
+            return (
+                <>
+                    Seasons : {details.number_of_seasons}
+                </>
+            )
+        } else if (details.runtime) {
+            return (
+                <>
+                    Runtime : {`${Math.trunc(details.runtime / 60)} Hrs ${details.runtime % 60} mins`}
+                </>
+            )
+        }
+    }
+
     render() {        
         if(this.state.isData && this.props.imageConfig) {            
             let details = this.state.data
@@ -76,7 +108,13 @@ class SingleItem extends React.Component {
                                     <div className="overview__container sub__container" >
                                         {this.state.data.overview}
                                     </div>
-                                    <div className="detail__container sub__container" >
+                                    <div className="detail__container" >
+                                        <div className="detail__grid" >
+                                            <div className="info__container"> {this.getLength(details)} </div>
+                                            <div className="info__container logos"> {this.getProducer(details)}</div>                                        
+                                            <div className="info__container">  </div>
+                                            <div className="info__container">  </div>
+                                        </div>
                                         
                                     </div>
                                 </div>
