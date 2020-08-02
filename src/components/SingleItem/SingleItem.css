@@ -83,19 +83,20 @@
 }
 
 .logos {
-    grid-row: 1/-1;
-    grid-column: 3/4;
+    grid-row: 1 / -1;
+    grid-column: 2 / 3;
     display: flex;
-    justify-content: center;
+    justify-content: center;    
+    align-items: center;
 }
 
 .detail__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);    
 }
 
 .info__container {
     text-transform: uppercase;
+    font-size: 85%;
 }

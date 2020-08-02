@@ -86,6 +86,21 @@ class SingleItem extends React.Component {
         }
     }
 
+    getRating(details) {
+        let rating = Math.trunc(details.vote_average / 2);
+
+        let rateArr = [1,2,3,4,5];
+        return (
+            <div className="rate__container" >
+                {rateArr.map(rate => {
+                    if(rate <= rating) {
+                        return <i className="star icon green" key={rate} ></i>
+                    } else return <i className="star icon black" key={rate} ></i>
+                })}
+            </div>
+        )
+    }
+
     render() {        
         if(this.state.isData && this.props.imageConfig) {            
             let details = this.state.data
@@ -112,7 +127,7 @@ class SingleItem extends React.Component {
                                         <div className="detail__grid" >
                                             <div className="info__container"> {this.getLength(details)} </div>
                                             <div className="info__container logos"> {this.getProducer(details)}</div>                                        
-                                            <div className="info__container">  </div>
+                                            <div className="info__container">  {this.getRating(details)}</div>
                                             <div className="info__container">  </div>
                                         </div>
                                         
