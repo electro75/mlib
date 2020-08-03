@@ -3,7 +3,7 @@
 }
 
 .search-input {
-    text-align: center;
+    text-align: center;    
 }
 
 .result-container {
@@ -16,4 +16,12 @@
     display : flex;
     justify-content: center;
     align-items: center;
+}
+
+.search__bar {
+    width: 100%;
+    position: fixed;
+    z-index: 9;
+    top: 74px;
+    background-color: #fff;    
 }

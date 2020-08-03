@@ -49,7 +49,7 @@ class ItemSearch extends React.Component {
         return (
             <div>
                 <div className='ui segment padded basic' >
-                    <div className='ui grid' >
+                    <div className='search__bar ui grid' >
                         <div className='five wide column' ></div>
                         <div className='six wide column' >
                             <div className={`ui massive icon input transparent ${this.props.isLoading ? 'loading' : ''}`}
