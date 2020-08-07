@@ -1,0 +1,10 @@
+.row-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll; 
+    height: 500px;   
+}
+
+.row-container > div {
+    margin-left: 10px;
+}

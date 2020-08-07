@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import tmdb from '../../api/tmdb';
 import keys from '../../config/keys';
 import './SingleItem.css';
-import {  Popup } from 'semantic-ui-react'
+import {  Popup } from 'semantic-ui-react';
+import ItemRow from '../ItemRow/ItemRow';
 
 class SingleItem extends React.Component {
 
@@ -152,7 +153,7 @@ class SingleItem extends React.Component {
                             </div>                        
                     </div>  
                     <div className="item-details" >
-                        display details here
+                        <ItemRow title="Cast" items={details.credits.cast}/>
                     </div>              
                 </div>
                 

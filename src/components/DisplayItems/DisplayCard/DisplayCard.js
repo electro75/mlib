@@ -79,25 +79,25 @@ class DisplayCard extends React.Component {
 
     render() {        
 
-        return (
-            <div 
-                className="ui card card__self" 
-                style={{cursor : 'pointer'}}
-                onClick={() => {this.redirectToDetails()}} >
-                <div className="image">
-                    {this.getImage()}
-                </div>
-                <div className="content">
-                    <p className="header" > {this.getName()} </p>
-                    <div className="meta">
-                        <span>{this.getDate()}</span>
-                    </div>                    
-                </div> 
-                <div className="extra card__footer">
-                    { this.getVoteAverage() }
-                    { this.getVoteCount() }                    
-                </div>              
-            </div>
+        return (            
+                <div 
+                    className="ui card card__self" 
+                    style={{cursor : 'pointer'}}
+                    onClick={() => {this.redirectToDetails()}} >
+                    <div className="image">
+                        {this.getImage()}
+                    </div>
+                    <div className="content">
+                        <p className="header" > {this.getName()} </p>
+                        <div className="meta">
+                            <span>{this.getDate()}</span>
+                        </div>                    
+                    </div> 
+                    <div className="extra card__footer">
+                        { this.getVoteAverage() }
+                        { this.getVoteCount() }                    
+                    </div>              
+                </div>            
         )
     }
     
