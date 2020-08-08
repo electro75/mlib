@@ -3,18 +3,28 @@ import DisplayCard from '../DisplayItems/DisplayCard/DisplayCard';
 import './ItemRow.css';
 
 const ItemRow = (props) => {
-    console.log(props.items);
+
+    const containerRef = React.createRef();
+
+    function handleScrollClick() {        
+        containerRef.current.scrollLeft +=10;
+    }
+    
     return (
-        <div className="section--container" >            
-            <h2 className="row-title" >{props.title}</h2>
+        <div className="section--container" >
+            <div>
+                <h2 className="row-title" >{props.title}</h2>
+                <div>
+                    <button onClick={handleScrollClick} > right </button>
+                </div>
+            </div>            
             
-                <div className="row-container" >
-                    
+                <div className="row-container" ref={containerRef}>
                         {props.items.map(item => {
                             return (
-                            <div className="row--item" >            
+                            <div className="row--item" key={item.id} >
                                 <DisplayCard                                
-                                    key={item.id}
+                                    
                                     item={item}
                                     type='tv'
                                 />
