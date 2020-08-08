@@ -1,10 +1,19 @@
+.section--container {
+    padding: 25px 40px;
+}
+
 .row-container {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: scroll; 
-    height: 500px;   
+    overflow-x: scroll;  
+    padding: 10px 0px;    
 }
 
-.row-container > div {
-    margin-left: 10px;
+.row--item {
+    flex-shrink : 0;
+    width: 15%;    
+}
+
+.row--item:not(:first-of-type) {
+    margin-left: 20px;
 }
