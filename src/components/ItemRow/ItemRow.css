@@ -2,6 +2,17 @@
     padding: 25px 40px;
 }
 
+.title--container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn--container {
+    flex-basis: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .row-container {
     display: flex;
     flex-wrap: nowrap;
@@ -16,4 +27,8 @@
 
 .row--item:not(:first-of-type) {
     margin-left: 20px;
+}
+
+.row-container::-webkit-scrollbar {
+    display: none;
 }

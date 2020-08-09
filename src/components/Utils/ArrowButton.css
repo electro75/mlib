@@ -1,0 +1,21 @@
+.btn {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;    
+}
+
+.btn--arr {
+    color: #16AB39;
+    font-size: 22px;
+    
+}
+
+.btn:focus,.btn:active {
+    outline: none;
+}
