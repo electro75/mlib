@@ -1,5 +1,7 @@
 .section--container {
     padding: 25px 40px;
+    
+    border-bottom: 1px solid #cdcdcd;
 }
 
 .title--container {
@@ -17,16 +19,14 @@
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;  
-    padding: 10px 0px;    
+    padding: 10px 0px; 
+    background-color: #fafafa; 
 }
 
 .row--item {
     flex-shrink : 0;
-    width: 15%;    
-}
-
-.row--item:not(:first-of-type) {
-    margin-left: 20px;
+    width: 20%;    
+    margin-left: 20px;    
 }
 
 .row-container::-webkit-scrollbar {

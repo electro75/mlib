@@ -154,6 +154,8 @@ class SingleItem extends React.Component {
                     </div>  
                     <div className="item-details" >
                         <ItemRow title="Cast" items={details.credits.cast}/>
+                        <ItemRow title="Seasons" items={details.seasons}/>                        
+                        <ItemRow title="Recommendations" items={details.recommendations.results} />
                     </div>              
                 </div>
                 
