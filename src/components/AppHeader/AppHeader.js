@@ -36,6 +36,10 @@ class AppHeader extends React.Component {
         this.props.history.push(linkto)        
     };        
 
+    redirectToHome = () => {
+        this.props.history.push('/');
+    }
+
     render() {
         const {activeItem} = this.state;
 
@@ -50,6 +54,7 @@ class AppHeader extends React.Component {
                         <Menu.Item 
                             header 
                             className='__menu-header menu-item'
+                            onClick={this.redirectToHome}
                             linkto='/'>
                             <Icon name='monero' color='green' size='large' />
                                 <span style={{color:'#16AB39'}} > MTVLIB </span> 
