@@ -25,11 +25,9 @@ class AppHeader extends React.Component {
                 return 'search'
 
             default :
-                return 'movies'
+                return ''
         }
-    }
-
-    
+    }    
 
     handleItemClick = (e, {name, linkto}) => {
         this.setState({activeItem : name})
@@ -37,6 +35,7 @@ class AppHeader extends React.Component {
     };        
 
     redirectToHome = () => {
+        this.setState({activeItem : ''});
         this.props.history.push('/');
     }
 
