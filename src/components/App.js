@@ -6,6 +6,7 @@ import {getConfig} from '../actions';
 import './App.css';
 import ShowExplore from './ShowExplore/ShowExplore';
 import ItemSearch from './ItemSearch/ItemSearch';
+import HomePage from './HomePage/HomePage';
 import SingleItem from './SingleItem/SingleItem';
 
 class App extends React.Component {
@@ -23,9 +24,9 @@ class App extends React.Component {
                         <Route path = '/explore' component={ShowExplore}/>
                         <Route path = '/search' component={ItemSearch} />
                         <Route path = '/details/:type/:id' component = {SingleItem} />
+                        <Route path ='/' component={HomePage} />
                     </div>
-                    
-                </div>
+                </div>                                
             </BrowserRouter>
         )
     }    

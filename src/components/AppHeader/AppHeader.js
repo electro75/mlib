@@ -25,16 +25,19 @@ class AppHeader extends React.Component {
                 return 'search'
 
             default :
-                return 'movies'
+                return ''
         }
-    }
-
-    
+    }    
 
     handleItemClick = (e, {name, linkto}) => {
         this.setState({activeItem : name})
         this.props.history.push(linkto)        
     };        
+
+    redirectToHome = () => {
+        this.setState({activeItem : ''});
+        this.props.history.push('/');
+    }
 
     render() {
         const {activeItem} = this.state;
@@ -50,6 +53,7 @@ class AppHeader extends React.Component {
                         <Menu.Item 
                             header 
                             className='__menu-header menu-item'
+                            onClick={this.redirectToHome}
                             linkto='/'>
                             <Icon name='monero' color='green' size='large' />
                                 <span style={{color:'#16AB39'}} > MTVLIB </span> 
