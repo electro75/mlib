@@ -24,7 +24,7 @@ class App extends React.Component {
                         <Route path = '/explore' component={ShowExplore}/>
                         <Route path = '/search' component={ItemSearch} />
                         <Route path = '/details/:type/:id' component = {SingleItem} />
-                        <Route path ='/' component={HomePage} />
+                        <Route path ='/' exact component={HomePage} />
                     </div>
                 </div>                                
             </BrowserRouter>
