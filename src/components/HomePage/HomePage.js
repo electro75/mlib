@@ -1,7 +1,8 @@
 import React from 'react';
+import './HomePage.css'
 
 const HomePage = () => {
-    return <div>This is mtvLib</div>
+    return (<div className="home-page" >This is mtvLib</div>)
 }
 
 export default HomePage;
