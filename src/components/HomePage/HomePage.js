@@ -5,9 +5,8 @@ const HomePage = () => {
     return (
     <div className="home-page" >
         <div className="text-container" >
-            <h1>MTVLIB</h1>
-            <p>Movies. TV. Library.</p>
-            <p>Decide what you want to binge on next, here.</p>
+            <h1 className="title-name" >MTVLIB</h1>
+            <p>Find your next binge here.</p>
         </div>
     </div>)
 }

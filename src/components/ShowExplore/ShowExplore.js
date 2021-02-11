@@ -21,7 +21,7 @@ const ShowExplore = (props)=> {
         props.incPage(item);
     }, 1000)
 
-    const handleScroll = (e) => {        
+    const handleScroll = (e) => {                
         let element = e.target;                                    
         if((element.scrollHeight - element.scrollTop - element.clientHeight) < 5) {            
             callAction();
