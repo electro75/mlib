@@ -21,10 +21,10 @@ class App extends React.Component {
                 <div className='app-container' >
                     <AppHeader />
                     <div className="body-box" >
+                        <Route path ='/' exact component={HomePage} />
                         <Route path = '/explore' component={ShowExplore}/>
                         <Route path = '/search' component={ItemSearch} />
-                        <Route path = '/details/:type/:id' component = {SingleItem} />
-                        <Route path ='/' exact component={HomePage} />
+                        <Route path = '/details/:type/:id' component = {SingleItem} />                        
                     </div>
                 </div>                                
             </BrowserRouter>

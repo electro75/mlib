@@ -1,8 +1,11 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom'
 import './HomePage.css';
 
 
 const HomePage = () => {    
+
+    const history = useHistory();
 
     return (
         <div className="home-page" >
@@ -14,7 +17,7 @@ const HomePage = () => {
             </div>
             <div className="explore-banner m-banner" >
                 <div className="banner-cover" >
-                    <div className="explore-btn" >
+                    <div className="explore-btn" onClick={() => history.push('/explore/movies')} >
                         Explore Movies
                     </div>
                 </div>
@@ -22,7 +25,7 @@ const HomePage = () => {
             </div>
             <div className="explore-banner t-banner" >
                 <div className="banner-cover" >
-                    <div className="explore-btn" >
+                    <div className="explore-btn" onClick={() => history.push('/explore/shows')}>
                         Explore TV
                     </div>
                 </div>

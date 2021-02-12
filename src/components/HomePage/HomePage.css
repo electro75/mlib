@@ -1,6 +1,6 @@
 .home-page {
     height: 90vh;
-    overflow-y: scroll;
+    overflow-y: scroll;    
 }
 
 .home-page-banner {
@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .text-container {
@@ -23,11 +24,11 @@
 
 .title-name {
     margin-bottom: 5px;
+    font-size: 32px;
 }
 
 .explore-banner {
-    height: 90vh;
-    
+    height: 90vh;    
     color: #fff;
     background-size: cover;
     background-position: center center;    
@@ -39,7 +40,7 @@
     background-color: rgba(14.12%, 14.51%, 16.86%, 0.7);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
 }
 
 .m-banner {
