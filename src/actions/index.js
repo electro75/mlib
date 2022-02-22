@@ -1,10 +1,9 @@
 import tmdb from '../api/tmdb';
 import _ from 'lodash';
-import keys from '../config/keys';
 import axios from 'axios';
 
 const params = {
-    api_key : keys.apiKey
+    api_key : process.env.NODE_ENV !== 'production' ? process.env.REACT_APP_API_KEYS : process.env.apiKey
 }
 
 export const getItems = (item, genre, page) => dispatch => _fetchItem(item, genre, page, dispatch);
@@ -75,7 +74,7 @@ const _fetchGenres = async (item, dispatch) => {
 }
 
 const _fetchItem = async (item, genre, page, dispatch) => {    
-    const response = await tmdb.get(`/discover/${item}?api_key=${keys.apiKey}&with_genres=${genre}&page=${page}`);    
+    const response = await tmdb.get(`/discover/${item}?api_key=${params.api_key}&with_genres=${genre}&page=${page}`);    
 
     let type = item === 'movie' ? (page > 1) ? 'ADD_MOVIES' : 'FETCH_MOVIES' : (page >1) ?'ADD_TVSHOWS' : 'FETCH_TVSHOWS';
 
@@ -87,7 +86,7 @@ const _fetchItem = async (item, genre, page, dispatch) => {
 }
 
 const fetchSearchReults = async (query, page, dispatch) => {
-    const response = await tmdb.get(`/search/multi?api_key=${keys.apiKey}&query=${query}&page=${page}`);
+    const response = await tmdb.get(`/search/multi?api_key=${params.api_key}&query=${query}&page=${page}`);
 
     dispatch({ type: 'TOGGLE_LOADER', payload : false })
 
