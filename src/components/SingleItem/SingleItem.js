@@ -1,10 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import tmdb from '../../api/tmdb';
-import keys from '../../config/keys';
 import './SingleItem.css';
 import {  Popup } from 'semantic-ui-react';
 import ItemRow from '../ItemRow/ItemRow';
+
+const keys = {
+    api_key : process.env.NODE_ENV !== 'production' ? process.env.REACT_APP_API_KEYS : process.env.apiKey
+}
 
 class SingleItem extends React.Component {
 
